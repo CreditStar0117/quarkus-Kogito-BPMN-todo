@@ -60,3 +60,27 @@ If you want to learn more about building native executables, please consult <htt
 Easily start your REST Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+
+
+#### If you encounter the error that related bean.
+```shell script 
+./mvnw clean install
+```
+
+```cookie
+matches multiple extensions:
+quarkus-rest-client-jackson
+quarkus-rest-client-jaxb
+quarkus-rest-client-jsonb
+quarkus-rest-client
+👉 So Quarkus CLI fails due to ambiguity.
+
+
+Fix (Use exact extension name)
+./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-rest-client-jackson"
+
+After installing
+./mvnw clean compile
+
+./mvnw quarkus:list-extensions
+```
